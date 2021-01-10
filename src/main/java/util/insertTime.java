@@ -4,12 +4,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class insertTime {
     public static void main(String[] args) {
-        JdbcTemplate jdbcTemplate=new JdbcTemplate(JDBCUtils.getDataSource());
-        for (int i=1;i<=18;i++){
-            for(int j=1;j<6;j++){
-                for(int k=0;k<=4;k+=2){
-                    String sql="insert into Time values(?,?,?)";
-                    jdbcTemplate.update(sql,i,"星期"+j,""+(k+1)+","+(k+2));
+        int maxWeek = args.length > 0 ? Integer.parseInt(args[0]) : 18;
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(JDBCUtils.getDataSource());
+        for (int week = 1; week <= maxWeek; week++) {
+            for (int weekDay = 1; weekDay < 6; weekDay++) {
+                for (int session = 0; session <= 4; session += 2) {
+                    String sql = "insert into Time values(?,?,?)";
+                    jdbcTemplate.update(sql, week, "星期" + weekDay, "" + (session + 1) + "," + (session + 2));
                 }
             }
         }
