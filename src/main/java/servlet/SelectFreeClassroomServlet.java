@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,17 +33,7 @@ public class SelectFreeClassroomServlet extends HttpServlet {
         ClassroomService service = new ClassroomService();
         List<Classroom> result = service.getClassroomListBy(myMap, start, pageSize);
         ObjectMapper mapper = new ObjectMapper();
-        String resultJs = null;
-        try {
-            result = mapper.writeValueAsString(result);
-        } catch (Exception e) {
-            resultJs = "[]";
-            e.printStackTrace();
-        }
-        try (PrintWriter out = response.getWriter()) {
-            out.write(resultJs);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
+        response.setContentType("application/json;charset=utf-8");
+        mapper.writeValue(response.getOutputStream(), result);
     }
 }
