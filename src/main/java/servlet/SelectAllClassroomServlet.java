@@ -7,6 +7,6 @@ import javax.servlet.http.HttpServlet;
 /**
  * 查询所有教室情况
  */
-@WebServlet("selectAllClassroom")
+@WebServlet("/selectAllClassroom")
 public class SelectAllClassroomServlet extends HttpServlet {
 }

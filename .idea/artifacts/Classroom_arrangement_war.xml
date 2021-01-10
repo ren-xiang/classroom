@@ -1,13 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="Classroom-arrangement:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <module>Classroom-arrangement</module>
-        <packaging>war</packaging>
-      </options>
-    </properties>
-    <root id="archive" name="Classroom-arrangement-1.0-SNAPSHOT.war">
+    <root id="archive" name="classroom-arrangement-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="Classroom-arrangement:war exploded" />
     </root>
   </artifact>

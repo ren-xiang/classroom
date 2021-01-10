@@ -7,6 +7,6 @@ import javax.servlet.http.HttpServlet;
 /**
  * 删除安排表
  */
-@WebServlet("deleteArrangement")
+@WebServlet("/deleteArrangement")
 public class DeleteArrangementServlet extends HttpServlet {
 }

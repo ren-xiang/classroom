@@ -24,6 +24,7 @@ public class AddOrderServlet extends HttpServlet {
         Map<String, String[]> parameterMap = req.getParameterMap();
         for (String key : parameterMap.keySet()) {
             map.put(key, parameterMap.get(key)[0]);
+            System.out.println(key+":"+parameterMap.get(key)[0]);
         }
         map.put("teacherID", ((User) req.getSession().getAttribute("user")).getTeacherID());
         ClassroomService service = new ClassroomService();
