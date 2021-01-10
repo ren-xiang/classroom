@@ -27,4 +27,8 @@ public class ClassroomService {
         }
         return insertDao.insertArrangement(arrangement);
     }
+
+    public List<NewClassroom> selectAllClassroom(Map<String, String> map, int start, int pageSize) {
+
+    }
 }
