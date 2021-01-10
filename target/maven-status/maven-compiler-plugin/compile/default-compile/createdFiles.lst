@@ -1,8 +1,6 @@
-util\insertTime.class
-util\JDBCUtils.class
-servlet\CheckCodeServlet.class
-servlet\loginServlet.class
-Dao\loginDao.class
-domain\ResultInfo.class
-domain\User.class
-service\loginService.class
+Dao/SearchDao.class
+domain/Classroom.class
+util/insertTime.class
+domain/teacherclass.class
+Dao/InsertDao.class
+domain/Arrangement.class

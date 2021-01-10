@@ -9,6 +9,10 @@ public class Arrangement {
     private String weekDay;
     private String session;
 
+    public Arrangement() {
+
+    }
+
     public Arrangement(String classroomID, String cid, String teacherID, String status, String week, String weekDay, String session) {
         this.classroomID = classroomID;
         this.cid = cid;
