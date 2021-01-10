@@ -12,9 +12,9 @@ import java.util.Map;
 public class SearchDao {
     JdbcTemplate jdbcTemplate=new JdbcTemplate(JDBCUtils.getDataSource());
     //根据教师id查询其上课表
-    public List<teacherclass> searchClassByTID(String teacherID){
+    public List<Teacherclass> searchClassByTID(String teacherID){
         String sql="select * from teacherclass where teacherID = ? ";
-        List<teacherclass> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<teacherclass>(teacherclass.class), teacherID);
+        List<Teacherclass> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Teacherclass>(Teacherclass.class), teacherID);
         return list;
     }
     //查询空闲教室

@@ -6,6 +6,6 @@ import javax.servlet.http.HttpServlet;
 /**
  * 生成安排表
  */
-@WebServlet("createArrangement")
+@WebServlet("/createArrangement")
 public class CreateArrangementServlet extends HttpServlet {
 }
