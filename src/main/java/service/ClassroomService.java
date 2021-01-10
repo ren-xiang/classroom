@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 public class ClassroomService {
-    public List<Classroom> getClassroomListBy(Map<String, String> map, String start, String pageSize) {
+    public List<Classroom> getClassroomListBy(Map<String, String> map, int start, int pageSize) {
         SearchDao searchDao = new SearchDao();
-        return searchDao.searchClassroom(map, start, pageSize);
+        return searchDao.selectFreeClassroomByCondition(map, start, pageSize);
     }
 
     public boolean addOrderBy(Map<String, String> map) {

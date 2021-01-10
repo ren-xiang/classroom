@@ -31,7 +31,7 @@ public class SelectFreeClassroomServlet extends HttpServlet {
             myMap.put(key, map.get(key)[0]);
         }
         ClassroomService service = new ClassroomService();
-        List<Classroom> result = service.getClassroomListBy(myMap, start, pageSize);
+        List<Classroom> result = service.getClassroomListBy(myMap, Integer.parseInt(map.get("start")[0]), Integer.parseInt(map.get("pageSize")[0]));
         ObjectMapper mapper = new ObjectMapper();
         response.setContentType("application/json;charset=utf-8");
         mapper.writeValue(response.getOutputStream(), result);
