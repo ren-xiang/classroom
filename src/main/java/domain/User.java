@@ -1,5 +1,5 @@
 package domain;
-
+//用户登陆
 public class User {
     private String teacherID;
     private String password;

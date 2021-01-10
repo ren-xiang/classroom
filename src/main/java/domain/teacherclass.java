@@ -1,5 +1,5 @@
 package domain;
-
+//教师课表
 public class teacherclass {
     private String teacherID;
     private String cid;

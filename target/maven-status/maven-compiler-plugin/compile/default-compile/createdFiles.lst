@@ -1,8 +1,8 @@
+util\insertTime.class
+util\JDBCUtils.class
 servlet\CheckCodeServlet.class
 servlet\loginServlet.class
 Dao\loginDao.class
 domain\ResultInfo.class
 domain\User.class
-util\insertTime.class
-util\JDBCUtils.class
 service\loginService.class

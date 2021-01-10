@@ -1,13 +1,14 @@
 package domain;
-
-public class FreeClassroom {
-    private String classroomID;
-    private String snum;
-    private String type;
+//教室状态表
+public class Classroom {
+    private String status;
     private String week;
     private String weekDay;
     private String session;
-    private String status="空闲";
+    private String classroomID;
+    private String teacherID;
+    private String snum;
+    private String type;
 
     public String getClassroomID() {
         return classroomID;
@@ -31,6 +32,14 @@ public class FreeClassroom {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getWeek() {
@@ -57,24 +66,25 @@ public class FreeClassroom {
         this.session = session;
     }
 
-    public String getStatus() {
-        return status;
+    public String getTeacherID() {
+        return teacherID;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTeacherID(String teacherID) {
+        this.teacherID = teacherID;
     }
 
     @Override
     public String toString() {
-        return "FreeClassroom{" +
-                "classroomID='" + classroomID + '\'' +
-                ", snum='" + snum + '\'' +
-                ", type='" + type + '\'' +
+        return "Classroom{" +
+                "status='" + status + '\'' +
                 ", week='" + week + '\'' +
                 ", weekDay='" + weekDay + '\'' +
                 ", session='" + session + '\'' +
-                ", status='" + status + '\'' +
+                ", classroomID='" + classroomID + '\'' +
+                ", teacherID='" + teacherID + '\'' +
+                ", snum='" + snum + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }
