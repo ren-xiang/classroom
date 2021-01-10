@@ -1,15 +1,17 @@
 package domain;
-//教室状态表
-public class Classroom {
+
+public class NewClassroom {
+    private String classroomID;
+    private String cid;
+    private String teacherID;
     private String status;
     private String week;
     private String weekDay;
     private String session;
-    private String classroomID;
-    private String teacherID;
+    private String cname;
     private String snum;
     private String type;
-    
+
     public String getClassroomID() {
         return classroomID;
     }
@@ -18,20 +20,20 @@ public class Classroom {
         this.classroomID = classroomID;
     }
 
-    public String getSnum() {
-        return snum;
+    public String getCid() {
+        return cid;
     }
 
-    public void setSnum(String snum) {
-        this.snum = snum;
+    public void setCid(String cid) {
+        this.cid = cid;
     }
 
-    public String getType() {
-        return type;
+    public String getTeacherID() {
+        return teacherID;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTeacherID(String teacherID) {
+        this.teacherID = teacherID;
     }
 
     public String getStatus() {
@@ -66,23 +68,41 @@ public class Classroom {
         this.session = session;
     }
 
-    public String getTeacherID() {
-        return teacherID;
+    public String getCname() {
+        return cname;
     }
 
-    public void setTeacherID(String teacherID) {
-        this.teacherID = teacherID;
+    public void setCname(String cname) {
+        this.cname = cname;
+    }
+
+    public String getSnum() {
+        return snum;
+    }
+
+    public void setSnum(String snum) {
+        this.snum = snum;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
-        return "Classroom{" +
-                "status='" + status + '\'' +
+        return "NewClassroom{" +
+                "classroomID='" + classroomID + '\'' +
+                ", cid='" + cid + '\'' +
+                ", teacherID='" + teacherID + '\'' +
+                ", status='" + status + '\'' +
                 ", week='" + week + '\'' +
                 ", weekDay='" + weekDay + '\'' +
                 ", session='" + session + '\'' +
-                ", classroomID='" + classroomID + '\'' +
-                ", teacherID='" + teacherID + '\'' +
+                ", cname='" + cname + '\'' +
                 ", snum='" + snum + '\'' +
                 ", type='" + type + '\'' +
                 '}';
