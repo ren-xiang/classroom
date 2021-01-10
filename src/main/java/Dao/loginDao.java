@@ -10,11 +10,12 @@ public class loginDao {
     public User login(User user){
         User ReturnUser=null;
         try {
-            String sql="select * from User where TeacherID=? and password=?";
+            String sql="select * from User where teacherID=? and password=?";
             ReturnUser = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), user.getTeacherID(), user.getPassword());
         }catch (Exception e){
             e.printStackTrace();
         }
         return ReturnUser;
     }
+    
 }

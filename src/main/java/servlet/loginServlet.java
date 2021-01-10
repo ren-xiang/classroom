@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.ResultInfo;
 import domain.User;
 import org.apache.commons.beanutils.BeanUtils;
-
+import service.loginService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
-import service.loginService;
 @WebServlet("/loginServlet")
 public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
