@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,8 +24,8 @@ public class AddOrderServlet extends HttpServlet {
         Map<String, String> map = new HashMap<>();
         Map<String, String[]> parameterMap = req.getParameterMap();
         for (String key : parameterMap.keySet()) {
-            map.put(key, parameterMap.get(key)[0]);
-            System.out.println(key+":"+parameterMap.get(key)[0]);
+            map.put(key, URLDecoder.decode("UTF-8", parameterMap.get(key)[0]));
+            System.out.println(key + ":" + parameterMap.get(key)[0]);
         }
         map.put("teacherID", ((User) req.getSession().getAttribute("user")).getTeacherID());
         ClassroomService service = new ClassroomService();

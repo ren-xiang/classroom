@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.HashMap;
+
 import domain.NewClassroom;
 
 import java.util.List;
@@ -29,7 +31,7 @@ public class SelectAllClassroomServlet extends HttpServlet {
             if (key.equals("start") || key.equals("pageSize")) {
                 continue;
             }
-            myMap.put(key, map.get(key)[0]);
+            myMap.put(key, URLDecoder.decode("UTF-8", map.get(key)[0]));
         }
         ClassroomService service = new ClassroomService();
         int start = Integer.parseInt(req.getParameter("start"));
