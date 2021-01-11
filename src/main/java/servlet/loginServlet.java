@@ -20,20 +20,9 @@ public class loginServlet extends HttpServlet {
         ResultInfo resultInfo=new ResultInfo();
         User user=new User();
         loginService loginService=new loginService();
-        
         //        设置接收参数的编码
         request.setCharacterEncoding("utf8");
-//        验证验证码是否正确
-        String verifycode = request.getParameter("verifycode");
-        HttpSession session = request.getSession();
-        String verifycode2 = (String) session.getAttribute("CHECKCODE_SERVER");
-        session.removeAttribute("CHECKCODE_SERVER");
-        if (!verifycode2.equalsIgnoreCase(verifycode)) {
-            resultInfo.setFlag(false);
-            resultInfo.setErrorMsg("验证码错误");
-            
-        }else{
-            Map<String, String[]> map = request.getParameterMap();
+        Map<String, String[]> map = request.getParameterMap();
             try {
                 BeanUtils.populate(user,map);
             } catch (IllegalAccessException e) {
@@ -50,9 +39,6 @@ public class loginServlet extends HttpServlet {
                 resultInfo.setFlag(false);
                 resultInfo.setErrorMsg("账号或密码错误");
             }
-            
-
-        }
         ObjectMapper mapper=new ObjectMapper();
 //        "application/json;charset=utf-8"
         response.setContentType("application/json;charset=utf-8");

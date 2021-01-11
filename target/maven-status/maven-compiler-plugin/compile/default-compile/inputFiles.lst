@@ -1,4 +1,5 @@
 E:\java code\web-learn\classroom\src\main\java\Dao\DeleteDao.java
+E:\java code\web-learn\classroom\src\main\java\domain\Course.java
 E:\java code\web-learn\classroom\src\main\java\servlet\CheckCodeServlet.java
 E:\java code\web-learn\classroom\src\main\java\util\JDBCUtils.java
 E:\java code\web-learn\classroom\src\main\java\servlet\SelectAllClassroomServlet.java
@@ -21,5 +22,5 @@ E:\java code\web-learn\classroom\src\main\java\service\ArrangementService.java
 E:\java code\web-learn\classroom\src\main\java\domain\Arrangement.java
 E:\java code\web-learn\classroom\src\main\java\domain\Classroom.java
 E:\java code\web-learn\classroom\src\main\java\service\TeacherService.java
+E:\java code\web-learn\classroom\src\main\java\domain\ArrangeClassroom.java
 E:\java code\web-learn\classroom\src\main\java\domain\User.java
-E:\java code\web-learn\classroom\src\main\java\Dao\UpdateDao.java

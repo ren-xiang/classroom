@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据库课设-课室管理系统</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- 引入bootstrap -->
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+        <!-- 右导航栏实现 -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- 导航栏左侧 -->
+            <ul class="navbar-nav">
+                <!-- 按钮 -->
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <!-- 首页 -->
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="index3.html" class="nav-link">首页</a>
+                </li>
+                <!-- 联系我 -->
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">联系我</a>
+                </li>
+            </ul>
+            <span title="时间" class="tool-fox">
+                <span id="now_time" style="font-size: 0.90em;">加载中...</span>
+            </span>
+
+            <!-- 导航栏右侧 -->
+            <ul class="navbar-nav ml-auto">
+                <!-- 全屏 -->
+                <!-- //todo 想要改为退出按钮 全拼保留？ -->
+
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" herf='#' role='button'>
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- 左侧菜单栏 -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+            <!-- logo -->
+            <a href="#" class="brand-link">
+                <img src="images/3.jpg" alt="课室管理系统" class="brand-image img-circle elevation-3" style="opacity: .8;">
+                <span class="brand-text font-weight-light">课室管理系统</span>
+            </a>
+            <!-- 菜单 -->
+            <div class="sidebar">
+                <!--用户 -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="images/csgo.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">叉烧谢瑞</a>
+                    </div>
+                </div>
+
+                <!-- 左侧菜单栏 -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!--预约申请-->
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon "></i>
+                                <p>
+                                    预约申请
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>预约教室</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>申请课程</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- 我的信息 -->
+                        <li class="nav-item menu-open">
+                            <a href="#" class=nav-link>
+                                <i class="nav-icon"></i>
+                                <p>
+                                    我的信息
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="=#" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>上课任务</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="=#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>个人信息</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- 主体内容 -->
+        <div class="content-wrapper">
+            <!-- 预约教室 -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>预约教室</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">首页</a></li>
+                                <li class="breadcrumb-item active">返回</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- 表格内容 -->
+            <section class="content">
+                <div class=container-fluid>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class='card'>
+                                <div class="card-header">
+                                    <h3 class="card-title">课室表查询</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <label>教室类型</label>
+                                                <select class="select2 selectSubject" style="width:100%">
+                                                    <option selected>不限</option>
+                                                    <option>普通教室</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <label>最低人数要求</label>
+                                                <select class="select2 selectSubject" style="width: 100%;">
+                                                    <option selected>不限</option>
+                                                    <option>90</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <label>上课周次</label>
+                                                <select class="select2 selectSubject" style="width: 100%;">
+                                                    <option selected>全部</option>
+                                                    <option>第一周</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <label>上课星期</label>
+                                                <select class="select2 selectSubject" style="width: 100%;">
+                                                    <option selected>全部</option>
+                                                    <option>周一</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <label>上课节次</label>
+                                                <select class="select2 selectSubject" style="width: 100%;">
+                                                    <option selected>全部</option>
+                                                    <option>1、2节</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <button id="btn_query_multiple checkBtn"
+                                                class="btn btn-default me-margin-top">
+                                                <i class="fa fa-search" style="font-size: 48px;">查询</i>
+                                            </button>
+                                        </div>
+                                        <table id="teacher" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="me-remove-asc">
+                                                        <input type="checkbox" name="all_select" />
+                                                    </th>
+                                                    <th>教室名称</th>
+                                                    <th>最大人数</th>
+                                                    <th>教室类型</th>
+                                                    <th>上课周次</th>
+                                                    <th>上课星期</th>
+                                                    <th>上课节次</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input type="checkbox" name="select" />
+                                                    </td>
+                                                    <td>教四-106</td>
+                                                    <td>90</td>
+                                                    <td>普通室</td>
+                                                    <td>第3周</td>
+                                                    <td>星期2</td>
+                                                    <td>1、2节</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- 引入Bootstrap -->
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="plugins/select2/js/select2.full.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="plugins/jszip/jszip.min.js"></script>
+    <script src="plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- ionicon的引入 -->
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <!-- Page specific script -->
+    <script>
+
+        $("#checkBtn").click(function () {
+            // alert($(".checkName").val());
+            alert($("#selectAcademy option[selected]").val());
+        });
+
+        $(".selectAcademy").change(function () {
+            alert($(".selectAcademy").val());
+        });
+
+
+
+
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+                "searching": false,
+                "buttons": ["copy", "excel", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+        //选择框的动态执行代码
+        $(function () {
+            $('.select2').select2()
+        });
+        // 一直更新时间
+        setInterval(function () {
+            var da = new Date();
+            var Y = da.getFullYear(); //年
+            var M = da.getMonth() + 1; //月
+            var D = da.getDate(); //日
+            var h = da.getHours(); //小时
+            var sx = "凌晨";
+            if (h >= 6) {
+                sx = "上午"
+            }
+            if (h >= 12) {
+                sx = "下午";
+                if (h >= 18) {
+                    sx = "晚上";
+                }
+                h -= 12;
+            }
+            var m = da.getMinutes(); //分
+            var s = da.getSeconds(); //秒
+            var z = ['日', '一', '二', '三', '四', '五', '六'][da.getDay()]; //周几
+            // z = z == 0 ? '日' : z;
+            var zong = "";
+
+            zong += Y + "-" + M + "-" + D + " " + sx + " " + h + ":" + m + ":" + s + " 周" + z;
+            $("#now_time").text(zong);
+        }, 1000)
+
+
+
+
+
+    </script>
+</body>
+
+</html>
