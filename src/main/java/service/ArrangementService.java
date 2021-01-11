@@ -4,7 +4,6 @@ import domain.ArrangeClassroom;
 import domain.Arrangement;
 import domain.Course;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,6 +36,7 @@ public class ArrangementService {
                         arrangement.setSession(classroom.getSession());
                         arrangeClassroomList.remove(classroom);
                         result.add(arrangement);
+                        break;
                     }
                 }
             }
