@@ -39,4 +39,9 @@ public class SelectAllClassroomServlet extends HttpServlet {
         resp.setContentType("application/json;charset=utf-8");
         mapper.writeValue(resp.getOutputStream(), list);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doGet(req, resp);
+    }
 }

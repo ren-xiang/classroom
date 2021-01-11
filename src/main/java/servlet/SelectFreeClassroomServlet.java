@@ -21,7 +21,6 @@ import java.util.Map;
 public class SelectFreeClassroomServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO test
         Map<String, String[]> map = request.getParameterMap();
         Map<String, String> myMap = new HashMap<>();
         for (String key : map.keySet()) {
@@ -35,5 +34,10 @@ public class SelectFreeClassroomServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         response.setContentType("application/json;charset=utf-8");
         mapper.writeValue(response.getOutputStream(), result);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doGet(req, resp);
     }
 }

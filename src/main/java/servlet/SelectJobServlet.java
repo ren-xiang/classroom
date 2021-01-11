@@ -27,4 +27,9 @@ public class SelectJobServlet extends HttpServlet {
         response.setContentType("application/json;charset=utf-8");
         mapper.writeValue(response.getOutputStream(), classList);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doGet(req, resp);
+    }
 }

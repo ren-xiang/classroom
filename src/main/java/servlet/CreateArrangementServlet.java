@@ -8,4 +8,5 @@ import javax.servlet.http.HttpServlet;
  */
 @WebServlet("/createArrangement")
 public class CreateArrangementServlet extends HttpServlet {
+
 }
