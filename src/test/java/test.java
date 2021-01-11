@@ -1,12 +1,10 @@
 import Dao.*;
 
-import domain.Arrangement;
-import domain.Classroom;
+import domain.*;
 
-import domain.NewClassroom;
-import domain.User;
-import domain.Teacherclass;
 import org.junit.Test;
+import org.springframework.jdbc.core.JdbcTemplate;
+import util.JDBCUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,11 +15,7 @@ public class test {
     SearchDao searchDao=new SearchDao();
     InsertDao insertDao=new InsertDao();
     
-    @Test
-    public void testClassroom(){
-        List<Classroom> list = searchDao.searchClassroom("40", "多媒体教室");
-        System.out.println(list);
-    }
+    
     @Test
     public void testClassroomStatus(){
         Map<String,String> map=new HashMap<String, String>();
@@ -58,7 +52,37 @@ public class test {
    }
    @Test
    public void testDelete(){
-       DeleteDao deleteDao=new DeleteDao();
-       System.out.println(deleteDao.deleteArrangement()); 
+       JdbcTemplate jdbcTemplate = new JdbcTemplate(JDBCUtils.getDataSource());
+       for (int week = 1; week <= 18; week++) {
+           for (int weekDay = 1; weekDay < 6; weekDay++) {
+               for (int session = 0; session <= 4; session += 2) {
+                   String sql = "insert into Time values(?,?,?)";
+                   jdbcTemplate.update(sql, week, "星期" + weekDay, "" + (session + 1) + "-" + (session + 2));
+               }
+           }
+       } 
    }
+
+    @Test
+    public void testSearch(){
+       Arrangement arrangement=new Arrangement("教一101","TMP6666","00001442","使用","1","星期1","1-2");
+       Arrangement arrangement2=new Arrangement("教一101","TMP6667","00001442","使用","1","星期1","3-4");
+       List<Arrangement> list=new ArrayList<>();
+       list.add(arrangement);
+       list.add(arrangement2);
+        boolean b = insertDao.insertArrangementByProduce(list);
+        System.out.println(b);
+       /*List<Course> list = searchDao.selectCourse();
+        System.out.println(list);*/
+       /* List<ArrangeClassroom> arrangeClassrooms = searchDao.searchArraangeClassroom();
+        System.out.println(arrangeClassrooms);*/
+       // JdbcTemplate jdbcTemplate=new JdbcTemplate(JDBCUtils.getDataSource());
+       // System.out.println("call insert_arrangement(\"教一101\",\"TMP6666\",\"00001442\",\"使用\",\"1\",\"星期1\",\"1-2\")");
+      //  System.out.println("call insert_arrangement("+"\""+arrangement.getClassroomID()+"\""+","+"\""+arrangement.getCid()+"\""+","+"\""+arrangement.getTeacherID()+"\""+","+"\""+arrangement.getStatus()+"\""+","+"\""+arrangement.getWeek()+"\""+","+"\""+arrangement.getWeekDay()+"\""+","+"\""+arrangement.getSession()+"\""+")");
+      //  jdbcTemplate.execute("call insert_arrangement("+"\""+arrangement.getClassroomID()+"\""+","+"\""+arrangement.getCid()+"\""+","+"\""+arrangement.getTeacherID()+"\""+","+"\""+arrangement.getStatus()+"\""+","+"\""+arrangement.getWeek()+"\""+","+"\""+arrangement.getWeekDay()+"\""+","+"\""+arrangement.getSession()+"\""+")");
+       //arrangement.getClassroomID()+","+arrangement.getCid()+","+arrangement.getTeacherID()+","+arrangement.getStatus()+","+arrangement.getWeek()+","+arrangement.getWeekDay()+","+arrangement.getSession()+")");
+       
+        //jdbcTemplate.execute("call insert_arrangement(\"教一101\",\"TMP6666\",\"00001442\",\"使用\",\"1\",\"星期1\",\"1-2\")");
+    }
+   
 }

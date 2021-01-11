@@ -18,19 +18,20 @@ public class SearchDao {
         List<Teacherclass> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Teacherclass>(Teacherclass.class), teacherID);
         return list;
     }
-   /* //查询空闲教室
-    public List<Classroom> searchFreeClassroom(){
-        String sql="select classroomID,snum,type,week,weekDay,session from status_view where status is null";
-        List<Classroom> list=jdbcTemplate.query(sql,new BeanPropertyRowMapper<Classroom>(Classroom.class));
-        return list;
-    }*/
-    //查询符合要求的教室
-    public List<Classroom> searchClassroom(String snum,String type){
-        String sql="select * from status_view where status is NULL snum>=? and type=?";
-        List<Classroom> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Classroom>(Classroom.class), snum, type);
+   
+    //查询第一周的所有教室
+    public List<ArrangeClassroom> searchArraangeClassroom(){
+        String sql="select * from ct_view where week=1";
+        List<ArrangeClassroom> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(ArrangeClassroom.class));
         return list;
     }
-    //查询教室状态
+    //查询课程号以及所需的课室大小类型
+    public List<Course> selectCourse(){
+        String sql="select cid,minRequest,teacherID,type from course";
+        List<Course> list=jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Course.class));
+        return list;
+    }
+    //管理员查询教室状态
     public List<NewClassroom> searchClassroomStatus(Map<String,String> map,int start, int pageSize){
         String sql="select * from classroom_status where 1=1 ";
         StringBuilder sb=new StringBuilder(sql);

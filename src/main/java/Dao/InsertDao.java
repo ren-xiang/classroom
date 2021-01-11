@@ -21,4 +21,10 @@ public class InsertDao {
         jdbcTemplate.batchUpdate(sql, String.valueOf(list));
         return true;
     }
+    public boolean insertArrangementByProduce(List<Arrangement> list){
+        for (Arrangement arrangement:list) {
+           jdbcTemplate.execute("call insert_arrangement("+"\""+arrangement.getClassroomID()+"\""+","+"\""+arrangement.getCid()+"\""+","+"\""+arrangement.getTeacherID()+"\""+","+"\""+arrangement.getStatus()+"\""+","+"\""+arrangement.getWeek()+"\""+","+"\""+arrangement.getWeekDay()+"\""+","+"\""+arrangement.getSession()+"\""+")");
+        }
+        return true;
+    }
 }
